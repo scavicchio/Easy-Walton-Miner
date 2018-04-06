@@ -70,10 +70,7 @@ def startMining(config):
     os.chdir(config.getWalletPath())
     if not os.path.isdir(config.getWalletPath()+"node1/"):
         os.system("walton.exe --datadir node1 init genesis.json")
-    os.system("walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 "+
-              "--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" "+
-              "--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase "+config.getKey()+
-              " --networkid 999 --rpcport 8545 console")
+    checkBlock(config)
     return config
 
 ''' Attatches to mining process using walton.exe's attach mode, then checks
@@ -92,6 +89,15 @@ def logHash(logfile, currHash):
     hashlog.write(sttime+","+currHash+"\n")
     hashlog.close()
 
+    ''' Checks the command line output of the miner to see if you got a block. '''
+def checkBlock(config):
+    blockLog = open("minerOutput.txt", 'a')
+    p = subprocess.Popen("walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 "+"--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" "+"--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase "+config.getKey()+" --networkid 999 --rpcport 8545 console", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+    for line in p.stdout:
+        sys.stdout.write(line)
+        blockLog.write(line)
+    p.wait()
+    
 ''' Defines and parses possible arguments for the application. Returns a
 dictionary of arguments with their associated values. '''
 def parseArgs():
