@@ -1,0 +1,1 @@
+pyinstaller easyWaltonMiner.py

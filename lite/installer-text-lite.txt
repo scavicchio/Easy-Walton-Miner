@@ -1,0 +1,12 @@
+EasyWaltonMiner Lite v1.3.0 by LeifEricson and scavicchio
+
+
+Press "Extract" to proceed with installation or "Cancel" to cancel.
+
+
+If you like this application, consider donating to us :)
+
+
+WaltonWallet: 0x197b391d4a7b4306f709177da18ed12a0ac0eaa3
+
+Ethereum: 0x56cb568AA7a1B1BA182165E42eD138b9CeC884fC
