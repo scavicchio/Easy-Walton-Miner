@@ -5,18 +5,20 @@ Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https:/
 
 ## Installation ("Full" Version)
 This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have a slight impact on performance depending on your machine.
-1) Run the ```EasyWaltonMiner-v1.3-Setup.exe``` file and choose the directory you wish to install it to.
+1) Extract the ```easyWaltonMiner-v1.3.zip``` file wherever you would like.
+2) Right click on ```easyWaltonMiner.exe``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
 2) Click your new "EasyWaltonMiner" shortcut and copy/past in your WTC Wallet address.
 3) You should now be mining!
 
 ## Installation ("Lite" Version)
 If you are worried about performance, or don't trust an executable file, you can download the lite version. It is entirely containted in two batch files, but it is very simplistic and will only recieve minor bug fixes going forward.
-1) Run the ```EasyWaltonMinerLite-v1.3-Setup.exe``` file and choose the WTC wallet directory as the destination.
+1) Extract the ```easyWaltonMinerLite-v1.3.zip``` file to the WTC wallet directory.
+2) Right click on ```easy-miner.bat``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
 2) Click your new "EasyWaltonMinerLite" shortcut and copy/paste in your WTC Wallet address. 
 3) You now should be mining!
 
 ## Configuration ("Full" Version Only)
-There are a few command line configuration options available. The easiest way to use them is to right click your EasyWaltonMiner shorcut, click "Properties," and edit the "Target" so that the flags are placed at the end of the command, before the close quote. Example:
+There are a few command line configuration options available. The easiest way to use them is to create a shortcut as explained above. Then you can right click your EasyWaltonMiner shorcut, click "Properties," and edit the "Target" so that the flags are placed at the end of the command, before the close quote. Example:
 
 ```
 "C:\Program Files (x86)\EasyWaltonMiner\easyWaltonMiner.exe -t 16 -nolog -pkp address.txt"
