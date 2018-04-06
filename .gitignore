@@ -33,6 +33,11 @@ MANIFEST
 
 # Installer packages
 *.exe
+*.zip
+*.csv
+
+pubaddr.txt
+logfile.txt
 
 # Installer logs
 pip-log.txt

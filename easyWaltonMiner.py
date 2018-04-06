@@ -67,11 +67,36 @@ def setEtherAddr(config):
 ''' Starts walton.exe in mining mode, with any other flags specified by the
 user including walletInstallPath, publicKey, and thread count.'''
 def startMining(config):
+    file = open("logfile.txt", "a", 1)
+    
     os.chdir(config.getWalletPath())
     if not os.path.isdir(config.getWalletPath()+"node1/"):
         os.system("walton.exe --datadir node1 init genesis.json")
-    checkBlock(config)
+
+    ## Entire command string for launching the miner
+    commandStr = "walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 \
+--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" \
+--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase %s --networkid 999 \
+--rpcport 8545"%config.getKey()
+
+    print(commandStr)
+
+    ## Open a logfile for the miner and then pipe the stdout to both the console and the logfile
+    
+    for line in execWithPiping(commandStr):
+        sys.stdout.buffer.write(line)
+        file.write(line.decode("utf-8"))
+        sys.stdout.flush()
     return config
+
+def execWithPiping(cmd):
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    for line in iter(p.stdout.readline, ""):
+        yield line 
+    p.stdout.close()
+    return_code = p.wait()
+    if return_code:
+        raise subprocess.CalledProcessError(return_code, cmd)
 
 ''' Attatches to mining process using walton.exe's attach mode, then checks
 the current hashrate. Pipes and returns the output as a string.'''
@@ -87,16 +112,7 @@ def logHash(logfile, currHash):
     ts = time.time()
     sttime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     hashlog.write(sttime+","+currHash+"\n")
-    hashlog.close()
-
-    ''' Checks the command line output of the miner to see if you got a block. '''
-def checkBlock(config):
-    blockLog = open("minerOutput.txt", 'a')
-    p = subprocess.Popen("walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 "+"--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" "+"--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase "+config.getKey()+" --networkid 999 --rpcport 8545 console", stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
-    for line in p.stdout:
-        sys.stdout.write(line)
-        blockLog.write(line)
-    p.wait()
+    hashlog.close()   
     
 ''' Defines and parses possible arguments for the application. Returns a
 dictionary of arguments with their associated values. '''
