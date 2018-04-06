@@ -31,6 +31,8 @@ Available options:
 -t or --threads [value] : Number of threads to use. Defaults to 8
 ```
 
+Alternatively, using the above method but adding the ```-m config``` flag will load an experimental config menu on launch which can also configure the above options.
+
 ## Building from Source
 For the lite version, simply copy the ```easy-miner.bat``` and ```start_automated.bat``` to the WTC directory.
 
