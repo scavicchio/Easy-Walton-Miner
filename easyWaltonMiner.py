@@ -76,8 +76,8 @@ def startMining(config):
     ## Entire command string for launching the miner
     commandStr = "walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 \
 --rpccorsdomain \"*\"  --cache 1024 --trie-cache-gens 1024 --datadir \"node1\" --port \"30303\" \
---rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase %s --networkid 999 \
---rpcport 8545"%config.getKey()
+--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase %s --minerthreads %d --networkid 999 \
+--rpcport 8545"%(config.getKey(),config.getThreads())
 
     print(commandStr)
 
