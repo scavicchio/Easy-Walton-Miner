@@ -16,6 +16,7 @@ class Config(object):
         self.__mode = self.__args['mode']
         self.__walletInstallPath = self.__args['walletpath']
         self.__logging = not self.__args['nolog']
+        self.__hashLogging = not self.__args['nologhash']
         self.__threadCount = self.__args['threads']
         self.__publicAddressFile = self.__args['publickeypath']
         self.__publicKey = ""
@@ -33,6 +34,10 @@ class Config(object):
         self.__logging = logging
     def getLogging(self):
         return self.__logging
+    def setHashLogging(self, logging):
+        self.__hashLogging = logging
+    def getHashLogging(self):
+        return self.__hashLogging
     def setThreads(self, threads):
         self.__threadCount = threads
     def getThreads(self):
@@ -85,7 +90,8 @@ def startMining(config):
     
     for line in execWithPiping(commandStr):
         sys.stdout.buffer.write(line)
-        file.write(line.decode("utf-8"))
+        if config.getLogging():
+            file.write(line.decode("utf-8"))
         sys.stdout.flush()
     return config
 
@@ -122,6 +128,7 @@ def parseArgs():
     parser.add_argument('-pkp','--publickeypath', required=False, default="pubaddr.txt")
     parser.add_argument('-m','--mode', required=False, default="address")
     parser.add_argument('-nl','--nolog', action='store_true', required=False, default=False)
+    parser.add_argument('-nlh','--nologhash', action='store_true', required=False, default=False)
     parser.add_argument('-t', '--threads', required=False, type=int, default=8)
     return vars(parser.parse_args())
 
@@ -231,7 +238,7 @@ def main(argv):
         time.sleep(delay)
         while True:
             currHash = getHash(config)
-            if config.getLogging():
+            if config.getHashLogging():
                 logHash("hashlog.csv", currHash)
             sys.stdout.write("\rAverage hash: \033[91m%d\033[0m | Current hash: \033[91m"%avgHash + currHash+"\033[0m")
             sys.stdout.flush()
