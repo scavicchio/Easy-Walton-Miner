@@ -7,7 +7,7 @@ import subprocess
 import argparse
 
 ## Global variables
-versionStr = "v1.3.1"
+versionStr = "v1.3.0"
 
 ''' Class to contain all configuration options. '''
 class Config(object):
@@ -16,7 +16,6 @@ class Config(object):
         self.__mode = self.__args['mode']
         self.__walletInstallPath = self.__args['walletpath']
         self.__logging = not self.__args['nolog']
-        self.__hashLogging = not self.__args['nologhash']
         self.__threadCount = self.__args['threads']
         self.__publicAddressFile = self.__args['publickeypath']
         self.__publicKey = ""
@@ -34,10 +33,6 @@ class Config(object):
         self.__logging = logging
     def getLogging(self):
         return self.__logging
-    def setHashLogging(self, logging):
-        self.__hashLogging = logging
-    def getHashLogging(self):
-        return self.__hashLogging
     def setThreads(self, threads):
         self.__threadCount = threads
     def getThreads(self):
@@ -72,37 +67,14 @@ def setEtherAddr(config):
 ''' Starts walton.exe in mining mode, with any other flags specified by the
 user including walletInstallPath, publicKey, and thread count.'''
 def startMining(config):
-    file = open("logfile.txt", "a", 1)
-    
     os.chdir(config.getWalletPath())
     if not os.path.isdir(config.getWalletPath()+"node1/"):
         os.system("walton.exe --datadir node1 init genesis.json")
-
-    ## Entire command string for launching the miner
-    commandStr = "walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 \
---rpccorsdomain \"*\"  --cache 1024 --trie-cache-gens 1024 --datadir \"node1\" --port \"30303\" \
---rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase %s --minerthreads %d --networkid 999 \
---rpcport 8545"%(config.getKey(),config.getThreads())
-
-    print(commandStr)
-
-    ## Open a logfile for the miner and then pipe the stdout to both the console and the logfile
-    
-    for line in execWithPiping(commandStr):
-        sys.stdout.buffer.write(line)
-        if config.getLogging():
-            file.write(line.decode("utf-8"))
-        sys.stdout.flush()
+    os.system("walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 "+
+              "--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" "+
+              "--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase "+config.getKey()+
+              " --networkid 999 --rpcport 8545 console")
     return config
-
-def execWithPiping(cmd):
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    for line in iter(p.stdout.readline, ""):
-        yield line 
-    p.stdout.close()
-    return_code = p.wait()
-    if return_code:
-        raise subprocess.CalledProcessError(return_code, cmd)
 
 ''' Attatches to mining process using walton.exe's attach mode, then checks
 the current hashrate. Pipes and returns the output as a string.'''
@@ -118,8 +90,8 @@ def logHash(logfile, currHash):
     ts = time.time()
     sttime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     hashlog.write(sttime+","+currHash+"\n")
-    hashlog.close()   
-    
+    hashlog.close()
+
 ''' Defines and parses possible arguments for the application. Returns a
 dictionary of arguments with their associated values. '''
 def parseArgs():
@@ -128,8 +100,7 @@ def parseArgs():
     parser.add_argument('-pkp','--publickeypath', required=False, default="pubaddr.txt")
     parser.add_argument('-m','--mode', required=False, default="address")
     parser.add_argument('-nl','--nolog', action='store_true', required=False, default=False)
-    parser.add_argument('-nlh','--nologhash', action='store_true', required=False, default=False)
-    parser.add_argument('-t', '--threads', required=False, type=int, default=8)
+    parser.add_argument('-t', '--threads', required=False, type=int, default=0)
     return vars(parser.parse_args())
 
 ''' Sets the current window title to the string specified. '''
@@ -219,7 +190,11 @@ def main(argv):
         config = setEtherAddr(config)
         
         ## Launch self in mining mode in a new window. Checks to see if compiled to exe or not.
-        argStr = " -m mine -t %d" % config.getThreads()
+        if config.getThreads() == 0:
+            argStr = " -m mine"
+        else:
+            argStr = " -m mine -t %d" % config.getThreads()
+    
         if os.path.exists("easyWaltonMiner.exe"):
             os.system("start easyWaltonMiner.exe"+argStr)
         elif os.path.exists("easyWaltonMiner.py"):
@@ -238,7 +213,7 @@ def main(argv):
         time.sleep(delay)
         while True:
             currHash = getHash(config)
-            if config.getHashLogging():
+            if config.getLogging():
                 logHash("hashlog.csv", currHash)
             sys.stdout.write("\rAverage hash: \033[91m%d\033[0m | Current hash: \033[91m"%avgHash + currHash+"\033[0m")
             sys.stdout.flush()
