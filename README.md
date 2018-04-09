@@ -1,5 +1,5 @@
 # Easy-Walton-Miner
-Batch file setup for running the Walton miner through the command prompt. Allows the user to bypass the thread limit and reach 100% CPU usage on high power machines. Automates the startup process to be a one click solution.
+Python and batch file setup for running the Walton miner through the command prompt. Allows the user to bypass the thread limit and reach 100% CPU usage on high power machines. Automates the startup process to be a one click solution.
 
 Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https://github.com/EBLeifEricson).
 
@@ -30,7 +30,7 @@ Available options:
 -pkp or --publickeypath [path] : Path to public key text file. Defaults to pubaddr.txt
 -m or --mode [mode] : Mode to launch in. Valid values are address, mine, and config.
 -nl or --nolog : Disables hashrate logging. Logging is on by default and logs to EasyWaltonMiner/hashlog.csv
--t or --threads [value] : Number of threads to use. Defaults to 8
+-t or --threads [value] : Number of threads to use. Defaults to max threads. 
 ```
 
 Alternatively, using the above method but adding the ```-m config``` flag will load an experimental config menu on launch which can also configure the above options.
@@ -41,4 +41,3 @@ For the lite version, simply copy the ```easy-miner.bat``` and ```start_automate
 For the full version, either run ```build.bat```, or run ```pyinstaller easyWaltonMiner.py``` (both require python and pyinstaller.) Output will be generated in dist/ folder.
 
 #### [Youtube Channel](https://www.youtube.com/channel/UCfP0gt7jVOvb4SzkihderHQ?view_as=subscriber)
-#### [Medium Page](https://medium.com/@salvycavicchio)
