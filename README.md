@@ -42,6 +42,7 @@ For the full version, either run ```build.bat```, or run ```pyinstaller easyWalt
 
 ## FAQ
 "getting error cannot find python36.dll" -> Check that you have made a shortcut to the application and not accidentally copied it to your Desktop instead. 
+
 "cannot attach to program" - connection refused" -> Check that you have closed all instances of the Walton wallet. 
 
 #### [Youtube Channel](https://www.youtube.com/channel/UCfP0gt7jVOvb4SzkihderHQ?view_as=subscriber)
