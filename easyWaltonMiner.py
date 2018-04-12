@@ -7,7 +7,7 @@ import subprocess
 import argparse
 
 ## Global variables
-versionStr = "v1.5.0"
+versionStr = "v1.6.1"
 
 ''' Class to contain all configuration options. '''
 class Config(object):
