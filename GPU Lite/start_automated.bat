@@ -1,4 +1,4 @@
-TITLE Walton Miner (DO NOT CLOSE)
+TITLE Walton GPU Miner (DO NOT CLOSE)
 set /p texte=<pubaddr.txt
 echo %texte%
 cd "C:/Program Files/WTC"
