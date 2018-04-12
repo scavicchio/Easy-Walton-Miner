@@ -1,12 +1,14 @@
 EasyWaltonMiner Lite v1.3.0 by LeifEricson and scavicchio
 
 
-Press "Extract" to proceed with installation or "Cancel" to cancel.
+1) Copy the files to your WTC program folder.
+2) Create a shortcut for the start-automated.bat
+3) The miner will start automatically on opening if a pubaddr.txt is found. If not it will prompt you to enter your WTCT address. 
 
+Note that this program cannot be run if the WTC wallet UI is open and also cannot be run simultaneously with GPU mining due to the Walton's program limitations. 
+
+Enjoy and happy mining!
 
 If you like this application, consider donating to us :)
 
-
-WaltonWallet: 0x197b391d4a7b4306f709177da18ed12a0ac0eaa3
-
-Ethereum: 0x56cb568AA7a1B1BA182165E42eD138b9CeC884fC
+Ethereum: 0xF4510765A2a394F839Ae81358faB56D150e56fB3
