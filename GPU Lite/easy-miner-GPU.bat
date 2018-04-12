@@ -10,7 +10,7 @@ set walletInstallPath="C:\Program Files\WTC\walton.exe"
 
 REM ## Other variables ##
 set publicAddressFile=pubaddr.txt
-set delay=60
+set delay=30
 
 setlocal enabledelayedexpansion
 
@@ -23,6 +23,9 @@ echo !id! > %publicAddressFile%
 
 REM ## Print hashrate every X seconds indefinitely ##
 TITLE Walton Hashrate Monitor (Can be closed)
+
+start "" /d "%~dp0GPUMining" "ming_run.exe"
+timeout 1 /NOBREAK > NUL
 start start_automated_GPU.bat
 timeout 10 /NOBREAK > NUL
 
@@ -38,8 +41,13 @@ echo.
 
 
 REM ## Use buffer in order to be able to log & echo to console at the same time
-type 0202001.txt >> hashlogGPU.csv
-type 0202001.txt
+
+<nul set /p = %DATE% %TIME% >> hashlogGPU.csv
+<nul set /p = , >> hashlogGPU.csv
+copy "%~dp0GPUMining/0202001" gpuLastHash.txt > NUL
+type gpuLastHash.txt >> hashlogGPU.csv
+type gpuLastHash.txt
+echo. >> hashlogGPU.csv
 
 timeout %delay% /NOBREAK > NUL
 
