@@ -206,7 +206,8 @@ def main(argv):
         setTitle("Hashrate Monitor (can be closed)")
         os.system('mode con: cols=60 lines=8')
         os.system("cls")
-        print("\033[92mINFO: Miner has been started and minimized to the task bar.\n\033[0m")
+        config.setStatus("INFO: Miner has been started and minimized to the task bar.")
+        print("\033[92m%s\n\033[0m"%config.getStatus())
         print("Mining to address (specified in public address file):\033[93m")
         print(config.getKey())
         print("\n\033[0mThis window will print your hash rate.")
@@ -215,7 +216,7 @@ def main(argv):
             currHash = getHash(config)
             if config.getLogging():
                 logHash("hashlog.csv", currHash)
-            sys.stdout.write("\rAverage hash: \033[91m%d\033[0m | Current hash: \033[91m"%avgHash + currHash+"\033[0m")
+            sys.stdout.write("\rAverage hash: \033[91m%d\033[0m | Current hash: \033[91m"%avgHash + currHash+"\033[0m          ")
             sys.stdout.flush()
             time.sleep(delay)
             loops += 1
