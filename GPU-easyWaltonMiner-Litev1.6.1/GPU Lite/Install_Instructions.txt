@@ -1,0 +1,13 @@
+EasyWaltonMiner GPU Lite v1.0 by scavicchio and LeifEricson
+
+1) Copy both batch files into your WTC program folder (or your GPU Mining program folder if you use a seperate one)
+2) Create a shortcut for the start-automated-GPU.bat to your Desktop. 
+3) Mining will start automatically if a pubaddr.txt is found. If not found, it will prompt you to enter your Etherbase address.
+
+Note that this program cannot be run simulatneously with the CPU miner at this time (unless you use a VM) due to the Walton team's program limitations. 
+
+Enjoy and happy mining! 
+
+If you like this application, consider donating to us :)
+
+Eth: 0xF4510765A2a394F839Ae81358faB56D150e56fB3
