@@ -36,7 +36,8 @@ Available options:
 -wp or --walletpath [path] : Path to the WTC Walton Wallet folder. Defaults to C:/Program Files/WTC
 -pkp or --publickeypath [path] : Path to public key text file. Defaults to pubaddr.txt
 -m or --mode [mode] : Mode to launch in. Valid values are address, mine, and config.
--nl or --nolog : Disables hashrate logging. Logging is on by default and logs to EasyWaltonMiner/hashlog.csv
+-nl or --nolog : Disables miner logging. Logging is on by default and logs to EasyWaltonMiner/logfile.txt
+-nhl or --nohashlog : Disables hashrate logging. Logging is on by default and logs to EasyWaltonMiner/hashlog.csv
 -t or --threads [value] : Number of threads to use. Defaults to max threads. 
 ```
 
