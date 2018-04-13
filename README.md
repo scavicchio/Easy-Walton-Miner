@@ -54,3 +54,5 @@ For the full version, either run ```build.bat```, or run ```pyinstaller easyWalt
 "cannot attach to program" - connection refused" -> Check that you have closed all instances of the Walton wallet. 
 
 #### [Youtube Channel](https://www.youtube.com/channel/UCfP0gt7jVOvb4SzkihderHQ?view_as=subscriber)
+
+Donations (Ethereum): 0xf4510765a2a394f839ae81358fab56d150e56fb3
