@@ -48,7 +48,7 @@ For the lite and GPU versions, simply copy the ```easy-miner.bat```/```easy-mine
 
 For the full version, either run ```build.bat```, or run ```pyinstaller easyWaltonMiner.py``` (both require python and pyinstaller.) Output will be generated in dist/ folder.
 
-## FAQ
+## Troubleshooting
 ```The lite or GPU miners close instantly.``` If you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start-automated.bat``` or ```start-automated-gpu.bat``` to reflect your wallet install path.
 
 
