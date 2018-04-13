@@ -6,7 +6,7 @@ Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https:/
 **The most recent release can always be downloaded from the Releases page.**
 
 ## Installation ("Full" Version)
-This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have a slight impact on performance depending on your machine.
+This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have an impact on performance depending on your machine. **If you experience a low hash rate with this version, try the Lite version.**
 1) Extract the ```easyWaltonMiner-Fullv1.6.1.zip``` file wherever you would like.
 2) Right click on ```easyWaltonMiner.exe``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
 2) Click your new shortcut and copy/past in your WTC Wallet address.
