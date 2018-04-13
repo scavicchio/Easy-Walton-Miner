@@ -46,17 +46,17 @@ Available options:
 Alternatively, using the above method but adding the ```-m config``` flag will load an experimental config menu on launch which can also configure the above options.
 
 ## Building from Source
-For the lite and GPU versions, simply copy the ```easy-miner.bat```/```easy-miner-GPU.bat``` and ```start_automated.bat```/```start_automated-GPU.bat``` to the WTC directory.
+For the lite and GPU versions, simply copy the ```easy-miner.bat```/```easy-miner-GPU.bat``` and ```start_automated.bat```/```start_automated_GPU.bat``` to the WTC directory.
 
 For the full version, either run ```build.bat```, or run ```pyinstaller easyWaltonMiner.py``` (both require python and pyinstaller.) Output will be generated in dist/ folder.
 
 ## Troubleshooting
-```The lite or GPU miners close instantly.``` If you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start-automated.bat``` or ```start-automated-gpu.bat``` to reflect your wallet install path.
+```The lite or GPU miners close instantly.``` If you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start_automated.bat``` or ```start_automated_GPU.bat``` to reflect your wallet install path.
 
 
 ```Error loading Python DLL 'C:\Users\Admin\Desktop\easyWaltonMiner\python36.dll'. LoadLibrary: The specified module could not be found.``` Check that you have made a shortcut to the application and not accidentally copied the .exe to your Desktop instead. Also, if you downloaded the v1.5 release, that release was not packaged with the correct binaries. Download the most recent release and try again.
 
-```No connection could be made because the target machine actively refused it.``` Check to see if all instances of the Walton wallet are closed. Additionally, if you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start-automated-gpu.bat``` to reflect your wallet install path.
+```No connection could be made because the target machine actively refused it.``` Check to see if all instances of the Walton wallet are closed. Additionally, if you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start_automated_GPU.bat``` to reflect your wallet install path.
 
 ## 
 
