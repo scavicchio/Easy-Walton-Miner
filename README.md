@@ -1,7 +1,9 @@
 # Easy-Walton-Miner
-Python and batch file setup for running the Walton miner through the command prompt. Allows the user to bypass the thread limit and reach 100% CPU usage on high power machines. Automates the startup process to be a one click solution.
+Application for running the Walton CPU and GPU miner through the command prompt. Allows the user to bypass the thread limit, reach 100% CPU usage on high power machines, and easily configure its options in order to automatically start mining the way you like in one click.
 
 Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https://github.com/EBLeifEricson).
+
+**The most recent release can always be downloaded from the Releases page.**
 
 ## Installation ("Full" Version)
 This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have a slight impact on performance depending on your machine.
