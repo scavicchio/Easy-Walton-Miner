@@ -13,14 +13,14 @@ This is the version you want if you want a lot of customization options, logging
 ## Installation ("GPU" Version)
 Right now, our GPU miner runs in a shell script, similar to the Lite version. Maybe there will be a "Full" version in the future, but for now, this is the one you want if you wish to use your GPU for mining.
 1) Extract the ```GPU-easyWaltonMiner-Litev1.6.1.zip``` file wherever you would like.
-2) Right click on ```easyWaltonMiner.exe``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
+2) Right click on ```easy-miner-GPU.bat``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
 2) Click your new shortcut and copy/past in your WTC Wallet address.
 3) You should now be mining!
 
 ## Installation ("Lite" Version)
 If you are worried about performance, or don't trust an executable file, you can download the lite version. It is entirely containted in two batch files, but it is very simplistic and will only recieve minor bug fixes going forward.
 1) Extract the ```easyWaltonMiner-Litev1.6.1.zip``` file to the WTC wallet directory.
-2) Right click on ```easy-miner-GPU.bat``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
+2) Right click on ```easy-miner.bat``` and click Send to -> Desktop (create shortcut) in order to create a Desktop shortcut for convenience.
 2) Click your new shortcut and copy/paste in your WTC Wallet address. 
 3) You now should be mining!
 
