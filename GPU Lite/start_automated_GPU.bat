@@ -8,4 +8,4 @@ if exist node1\ (
 	echo "not exist"
 	.\walton.exe --datadir node1 init genesis.json
 	)
-walton --identity "development" --rpc --gpupow --extradata "easyMiner" --rpcaddr 127.0.0.1 --rpccorsdomain "*"  --datadir "node1" --port "30303" --rpcapi "admin,personal,db,eth,net,web3,miner" --mine --etherbase %texte% --networkid 999 --rpcport 8545 console
+walton --identity "development" --rpc --gpupow --extradata "easyMinerGPU" --rpcaddr 127.0.0.1 --rpccorsdomain "*"  --datadir "node1" --port "30303" --rpcapi "admin,personal,db,eth,net,web3,miner" --mine --etherbase %texte% --networkid 999 --rpcport 8545 console
