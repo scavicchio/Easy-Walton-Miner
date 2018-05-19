@@ -76,7 +76,7 @@ def startMining(config):
 	if not os.path.isdir(config.getWalletPath()+"node1/"):
 		os.system("walton.exe --datadir node1 init genesis.json")
 	os.system("walton.exe --identity \"development\" --rpc --rpcaddr 127.0.0.1 "+
-			  "--rpccorsdomain \"*\"  --cache 2048 --datadir \"node1\" --port \"30303\" "+
+			  "--rpccorsdomain \"*\"  --extradata "easyMinerFULL" --cache 2048 --datadir \"node1\" --port \"30303\" "+
 			  "--rpcapi \"admin,personal,db,eth,net,web3,miner\" --mine --etherbase "+config.getKey()+
 			  " --networkid 999 --rpcport 8545 console")
 	return config
