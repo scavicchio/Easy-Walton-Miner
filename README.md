@@ -6,7 +6,7 @@ Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https:/
 **The most recent release can always be downloaded from the Releases page.**
 
 ## Using Extra Data
-If you want to include extra data in the blocks you mine so that you can track your rigs, we reccommend using the LITE versions of the miner. All you need to do is edit the start_automated batch file in notepad and replace "--extradata "easyMiner"" with whatever unique phrase you want to use. Then you can head on [over here](https://easyWaltonTracker.us-east-2.elasticbeanstalk.com) to view the data.
+If you want to include extra data in the blocks you mine so that you can track your rigs, we reccommend using the LITE versions of the miner. All you need to do is edit the start_automated batch file in notepad and replace "--extradata "easyMiner"" with whatever unique phrase you want to use. Then you can head on [over here](http://easyWaltonTracker.us-east-2.elasticbeanstalk.com) to view the data.
 
 ## Installation ("Full" Version)
 This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have an impact on performance depending on your machine. **If you experience a low hash rate with this version, try the Lite version.**
