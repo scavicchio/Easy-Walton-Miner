@@ -51,7 +51,7 @@ Alternatively, using the above method but adding the ```-m config``` flag will l
 ## Building from Source
 For the lite and GPU versions, simply copy the ```easy-miner.bat```/```easy-miner-GPU.bat``` and ```start_automated.bat```/```start_automated_GPU.bat``` to the WTC directory.
 
-For the full version, either run ```build.bat```, or run ```pyinstaller easyWaltonMiner.py``` (both require python and pyinstaller.) Output will be generated in dist/ folder.
+For the full version, either run ```build.bat```, or run ```pyinstaller easyWaltonMiner.py``` (both require python and pyinstaller.) Output will be generated in ```dist/``` folder.
 
 ## Troubleshooting
 ```The lite or GPU miners close instantly.``` If you have installed the wallet to a directory other than ```C:/Program Files/WTC```, you must edit the ```start_automated.bat``` or ```start_automated_GPU.bat``` to reflect your wallet install path.
@@ -65,6 +65,6 @@ For the full version, either run ```build.bat```, or run ```pyinstaller easyWalt
 
 #### [Youtube Channel](https://www.youtube.com/channel/UCfP0gt7jVOvb4SzkihderHQ?view_as=subscriber)
 
-Donations (Ethereum): ```0xF4510765A2a394F839Ae81358faB56D150e56fB3```
+Donations (Ethereum/Old WTC): ```0xF4510765A2a394F839Ae81358faB56D150e56fB3```
 
 Donations are **not** required, but we did work really hard on this! Walton's new token should not at this time be transferred due to the upcoming coin swap, so for now we have listed an Ethereum wallet if you are feeling so kind as to send us a donation. Thank you for your support!
