@@ -8,6 +8,11 @@ Created by [scavicchio](https://github.com/scavicchio) and [LeifEricson](https:/
 ## Using Extra Data
 If you want to include extra data in the blocks you mine so that you can track your rigs, we reccommend using the LITE versions of the miner. All you need to do is edit the start_automated batch file in notepad and replace "--extradata "easyMiner"" with whatever unique phrase you want to use. Then you can head on [over here](http://easyWaltonTracker.us-east-2.elasticbeanstalk.com) to view the data.
 
+## Why you should do port forwarding
+We reccommend implementing port forwarding rules on your router to maximize the speed and number of peer connections your miner can get. It is as simple as adding a port forwarding rule on your router, for your mining rig, on the default Walton port - 30303. You can usually do this by opening your browser to 192.168.1.1 - this will bring you to your router's admin page. From their you can change your network settings to add port forwarding. We found that on our miners we were able to get a full, consistent 25 peers in a few minuites of opening the miner, where without this rule our rig struggled to maintain just 1 or 2 peers. 
+
+If you want to get more than the default 25 peer max, you can add the flag "--maxpeers XX" to the start-automated.bat files. We found that doing this caused a negligible difference in performance. 
+
 ## Installation ("Full" Version)
 This is the version you want if you want a lot of customization options, logging features, and other future improvements. Runs in Python which may or may not have an impact on performance depending on your machine. **If you experience a low hash rate with this version, try the Lite version.**
 1) Extract the ```easyWaltonMiner-Fullv1.6.1.zip``` file wherever you would like.
